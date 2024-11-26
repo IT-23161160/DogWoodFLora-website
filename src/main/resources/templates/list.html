@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Order List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe6f2; /* Light pink background */
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #d147a3; /* Darker pink for headings */
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 10px 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #ffb3d9; /* Light pink header */
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #ffe6f2; /* Alternate row color */
+        }
+        a {
+            color: #d147a3;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<h1>Order List</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Order ID</th>
+        <th>User ID</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="order : ${orders}">
+        <td th:text="${order.orderId}"></td>
+        <td th:text="${order.userId}"></td>
+        <td th:text="${order.status}"></td>
+        <td>
+            <a th:href="@{/orders/{id}(id=${order.orderId})}">View</a> |
+            <a th:href="@{/orders/update/{id}(id=${order.orderId})}">Update</a> |
+            <a th:href="@{/orders/delete/{id}(id=${order.orderId})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

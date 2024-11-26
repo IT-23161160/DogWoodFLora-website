@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <title>Dog Wood Flora</title>
+</head>
+<body>
+<header class="header">
+    <a href="index.html" class="logo">
+        <img src="logo1.png" alt="">
+    </a>
+
+    <nav class="navbar">
+        <a href="index.html">home</a>
+        <a href="event.html">events</a>
+        <a href="orders.html">orders</a>
+        <a href="users.html">users</a>
+        <a href="event.html">bookings</a>
+        <a href="message.html">messages</a>
+    </nav>
+
+    <div class="icons">
+        <div class="fas fa-search" id="search-btn"></div>
+        <div class="fas fa-bars" id="menu-btn"></div>
+        <div id="user-btn" class="fas fa-user"></div>
+    </div>
+
+    <div class="search-form">
+        <input type="search" id="search-box" placeholder="search here...">
+        <label for="search-box" class="fas fa-search"></label>
+    </div>
+
+    <div class="account-box">
+        <p>username : <span>admin name</span></p>
+        <p>email : <span>admin email</span></p>
+        <a href="logout.html" class="delete-btn">logout</a>
+        <div>new <a href="login.html" class="btn">login</a> | <a href="register.html" class="btn">register</a> </div>
+    </div>
+</header>
+
+<section class="add-events">
+    <h1 class="title">Update Events</h1>
+    <form th:action="@{/event/{id}(id=${event.eventId})}" method="post" enctype="multipart/form-data">
+        <input type="hidden" th:field="*{event.eventId}" />
+        <input type="text" id="eventName" th:field="*{event.eventName}" placeholder="Enter event name" class="box" required /><br/>
+
+        <textarea id="eventDescription" th:field="*{event.eventDescription}" placeholder="Enter event details" class="box" cols="30" rows="10" required></textarea><br/>
+        <input type="file" id="eventImageFile" name="eventImageFile" accept="image/jpg, image/jpeg, image/png" class="box" required /><br/>
+
+
+
+        <button type="submit" class="btn">Update Event</button>
+    </form>
+</section>
+
+
+<section class="footer">
+    <div class="social">
+        <a href="#" class="icon"><i class="fa-brands fa-google"></i></a>
+        <a href="#" class="icon"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" class="icon"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
+
+    <ul class="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="event.html">Events</a></li>
+        <li><a href="orders.html">Orders</a></li>
+        <li><a href="users.html">Users</a></li>
+        <li><a href="event.html">Bookings</a></li>
+        <li><a href="message.html">Messages</a></li>
+    </ul>
+    <p class="copyright">B Developers @ 2024</p>
+</section>
+</body>
+</html>

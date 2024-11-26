@@ -1,0 +1,105 @@
+/* Product samples section */
+.product-samples-section {
+    color: black;
+    padding: 50px 20px; /* Added padding for left and right */
+    max-width: 100%;
+    margin: 0;
+}
+
+.product-samples-header {
+    width: 100%; /* Full width of the screen */
+    font-size: 2rem; /* Increased font size */
+    text-align: center;
+    margin: 3rem 0; /* Removed side margins */
+}
+
+.samples-box {
+    display: flex;
+    flex-wrap: nowrap; /* Ensures products stay in one line */
+    justify-content: space-between; /* Ensures even spacing between items */
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem 20px; /* Added padding for some space from edges */
+    background-color: #f0f0f0;
+    overflow-x: auto; /* Adds scroll in case it overflows horizontally */
+}
+
+.product {
+    background-color: #fcfcfc;
+    border: 1px solid whitesmoke;
+    width: 24%; /* Adjusted width to fit better */
+    margin: 0;
+    border-radius: 0.3rem;
+    text-align: center;
+}
+
+.product i {
+    display: inline-block;
+    margin: 1rem;
+    font-size: 1.1rem;
+    color: #d8055a;
+}
+
+.img-frame {
+    position: relative;
+    width: 80%; /* Increased image frame width */
+    margin: 0 auto;
+}
+
+.product img {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+}
+
+.quantity {
+    margin: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.product label {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.4rem 0.7vw 0.4rem 0.5vw;
+    border: 1px solid lightgray;
+    border-radius: 1rem;
+    transition: all 0.3s;
+}
+
+.product input[type="radio"] {
+    display: none;
+}
+
+.product input[type="radio"]:checked + label {
+    border: 2px solid #55bf00;
+}
+
+.product span {
+    display: block;
+    font-weight: 600;
+    margin: 1rem 1rem 1rem 1rem;
+}
+
+.price-span {
+    margin: 0 1rem 1rem 1rem;
+    font-size: 1.1rem;
+}
+
+.price-span i {
+    font-size: 1.1rem;
+}
+
+/* Adjusted show-more-btn */
+.show-more-btn {
+    font-size: 1.2rem;
+    width: 200px; /* Adjusted width */
+    text-align: center;
+    color: white;
+    background-color: #d8055a;
+    border-radius: 2rem;
+    padding: 0.6rem;
+    margin: 2rem auto;
+    cursor: pointer;
+    display: block;
+}

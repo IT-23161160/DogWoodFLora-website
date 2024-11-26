@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Order Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe6f2;
+            text-align: center;
+            color: #333;
+        }
+        h1 {
+            color: #d147a3;
+        }
+        .container {
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 60%;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #d147a3;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #bf3a8c;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Order Confirmed!</h1>
+    <p>Thank you for shopping at our flower shop!</p>
+    <p>Your Order ID: <span th:text="${order.orderId}"></span></p>
+    <p>Status: <span th:text="${order.status}"></span></p>
+    <a class="button" th:href="@{/orders}">View All Orders</a>
+</div>
+</body>
+</html>

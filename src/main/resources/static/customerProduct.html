@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flowers shop - Product page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/users/Cproduct1.css">
+    <link rel="stylesheet" href="/users/Cproduct2.css">
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+
+<!-- main container -->
+
+<main class="main-container">
+    <div class="selected-product">
+        <div class="product-img">
+            <div class="upper-elements">
+
+            </div>
+            <div class="main-img-frame">
+                <img src="./images/ts2.jpg" alt="Red Roses">
+            </div>
+        </div>
+        <div class="product-info">
+            <div class="product-title line">
+                <h1>Red Roses</h1>
+
+                <a href="#" class="heart-icon">
+                    <i class="fa fa-heart-o" aria-hidden="true"></i> <!-- Default unfilled heart -->
+                </a>
+
+            </div>
+            <div class="size line">Size:</div>
+            <div class="size-options line">
+                <div class="option-size option-size1">9 unt.</div>
+                <div class="option-size">15 unt.</div>
+                <div class="option-size">21 unt.</div>
+                <div class="option-size">32 unt.</div>
+            </div>
+
+            <div class="other-options line">
+                <div class="delivery">
+                    <span>Delivery:</span>
+                    <div class="delivery-options">
+                        <div class="options-line">
+                            <label>
+                                <input type="radio" class="delivery-radio" name="delivery" id="courier" />
+                                By courier
+                            </label>
+                            <label>
+                                <input type="radio" class="delivery-radio" name="delivery" id="pickup" />
+                                Pick up
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="total line">
+                <span class="new-price">$49</span>
+                <div class="buy-btn">Buy</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- related products section -->
+    <div class="related-products">
+        <nav class="related-products-bar">
+            <h2 class="title">Related products</h2>
+
+        </nav>
+        <div class="related-box">
+            <div class="related1 related">
+                <a href="#" class="heart-icon">
+                    <i class="fa fa-heart-o" aria-hidden="true"></i> <!-- Default unfilled heart -->
+                </a>
+
+                <div class="img-frame">
+                    <a href="customerProduct.html">
+                        <img src="./images/trjar.png" alt="Turkish Rose">
+                    </a>
+                </div>
+                <span>Turkish Rose</span>
+                <form class="quantity">
+                    <input type="radio" id="q1" name="quantity1"><label for="q1">9 unt.</label>
+                    <input type="radio" id="q2" name="quantity1"><label for="q2">15 unt.</label>
+                    <input type="radio" id="q3" name="quantity1"><label for="q3">21 unt.</label>
+                </form>
+                <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
+            </div>
+            <div class="related2 related">
+                <a href="#" class="heart-icon">
+                    <i class="fa fa-heart-o" aria-hidden="true"></i> <!-- Default unfilled heart -->
+                </a>
+
+                <div class="img-frame">
+                    <a href="customerProduct.html">
+                        <img src="./images/rfjar.png" alt="Rose Flower">
+                    </a>
+                </div>
+                <span>Rose Flower</span>
+                <form class="quantity">
+                    <input type="radio" id="q4" name="quantity2" checked><label for="q4">9 unt.</label>
+                    <input type="radio" id="q5" name="quantity2"><label for="q5">15 unt.</label>
+                    <input type="radio" id="q6" name="quantity2"><label for="q6">21 unt.</label>
+                </form>
+                <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
+            </div>
+            <div class="related3 related">
+                <a href="#" class="heart-icon">
+                    <i class="fa fa-heart-o" aria-hidden="true"></i> <!-- Default unfilled heart -->
+                </a>
+
+                <div class="img-frame">
+                    <a href="customerProduct.html">
+                        <img src="./images/acjar.png" alt="Assorted Colors">
+                    </a>
+                </div>
+                <span>Assorted Colors</span>
+                <form class="quantity">
+                    <input type="radio" id="q7" name="quantity" checked><label for="q7">9 unt.</label>
+                    <input type="radio" id="q8" name="quantity"><label for="q8">15 unt.</label>
+                    <input type="radio" id="q9" name="quantity"><label for="q9">21 unt.</label>
+                </form>
+                <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="productjs.js" defer></script>
+
+</body>
+</html>

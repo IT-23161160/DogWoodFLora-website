@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <title>Events</title>
+</head>
+
+<body>
+<header class="header">
+    <a href="../static/index.html" class="logo">
+        <img src="logo1.png" alt="">
+    </a>
+
+    <nav class="navbar">
+        <a href="../static/index.html">home</a>
+        <a href="product.html">products</a>
+        <a href="orders.html">orders</a>
+        <a href="users.html">users</a>
+        <a href="event.html">bookings</a>
+        <a href="message.html">messages</a>
+    </nav>
+
+    <div class="icons">
+        <div class="fas fa-search" id="search-btn"></div>
+        <div class="fas fa-bars" id="menu-btn"></div>
+        <div id="user-btn" class="fas fa-user"></div>
+    </div>
+
+    <div class="search-form">
+        <input type="search" id="search-box" placeholder="seach here...">
+        <label for="search-box" class="fas fa-search"></label>
+    </div>
+
+    <div class="account-box">
+        <p>username : <span>admin name</span></p>
+        <p>email : <span>admin email</span></p>
+        <a href="logout.html" class="delete-btn">logout</a>
+        <div>new <a href="login.html" class="btn">login</a> | <a href="register.html" class="btn">register</a> </div>
+    </div>
+</header>
+
+<section class="add-events">
+    <h1 class="title">Events</h1>
+    <form th:action="@{/event}" method="post" enctype="multipart/form-data">
+        <h3>add new event</h3>
+        <input type="hidden" th:field="*{event.eventId}" />
+        <input type="text" id="eventName" th:field="*{event.eventName}" placeholder="Enter event name" class="box" required /><br/>
+        <textarea id="eventDescription" th:field="*{event.eventDescription}" placeholder="Enter event details" class="box" cols="30" rows="10" required></textarea><br/>
+        <input type="file" id="eventImageFile" name="eventImageFile" accept="image/jpg, image/jpeg, image/png" class="box" required /><br/>
+        <input type="text" id="category" th:field="*{event.category}" placeholder="Enter event category" class="box" required /><br/>
+
+        <button type="submit" class="btn">Add event</button>
+    </form>
+</section>
+
+<section class="show-events">
+
+
+    <div class="box-container">
+        <div class="box" th:each="event : ${events}">
+            <img class="image" th:src="'data:image2/jpeg;base64,' + ${event.eventImage}" alt="event Image" width="100">
+            <div class="name" th:text="${event.getEventName}">Buddist Occasions</div>
+            <div class="details" th:text="${event.getEventDescription()}">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores dolores id sint atque! Placeat magnam expedita minus iusto commodi, quibusdam velit. Eum eaque dolorum sed similique veritatis hic recusandae impedit?</div>
+            <a th:href="@{/event/{id}/edit(id=${event.eventId})}" class="option-btn">update</a>
+            <form th:action="@{/event/{id}/delete(id=${event.eventId})}" method="post" style="display:inline;">
+                <input type="submit" value="delete" class="delete-btn" onclick="return confirm('delete this product?');" />
+            </form>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="footer">
+    <div class="social">
+        <a href="#" class="icon"><i class="fa-brands fa-google"></i></a>
+        <a href="#" class="icon"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" class="icon"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
+
+    <ul class="list">
+        <li><a href="../static/index.html">Home</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="orders.html">Orders</a></li>
+        <li><a href="users.html">Users</a></li>
+        <li><a href="event.html">Bookings</a></li>
+        <li><a href="message.html">Messages</a></li>
+    </ul>
+    <p class="copyright">B Developers @ 2024</p>
+</section>
+<script src="script.js"></script>
+</body>
+
+</html>

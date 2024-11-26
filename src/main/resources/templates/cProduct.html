@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Gallery</title>
+    <link rel="stylesheet" href="" th:href="@{/css/Cevent.css}">
+    <link rel="stylesheet" href="" th:href="@{/css/Cindex1.css}">
+    <link rel="stylesheet" href="" th:href="@{/css/pCSS/p1.css}">
+    <link rel="stylesheet" th:href="@{/style.css}">
+
+
+
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+
+<script th:src="@{/js/product.js}"></script>
+<body>
+
+<header>
+
+    <input type="checkbox" name="" id="toggler">
+    <label for="toggler" class="fas fa-bars"></label>
+
+    <a href="/" class="logo">
+        <img src="/images/logo1.png" width="150" height="65" alt="Logo">
+    </a>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+    </style>
+
+    <nav class="navbar">
+        <a href="/users/index#home">home</a>
+        <a href="/users/index#about">about</a>
+        <a href="/users/product">products</a>
+        <a href="/users/event">Events</a>
+        <a href="/users/index#review">review</a>
+        <a href="/users/index#contact">contact</a>
+    </nav>
+
+    <div class="icons">
+        <a href="#" class="fas fa-heart"></a>
+        <a href="#" class="fas fa-shopping-cart"></a>
+        <a href="#" class="fas fa-user"></a>
+    </div>
+
+</header>
+
+<!-- header section ends -->
+
+<div class="container">
+
+    <div style="height: 60px;"></div>
+    <section>
+        <h1 class="heading"> Our <span>Products</span></h1>
+    </section>
+
+    <!-- Radio buttons for categories -->
+    <div class="top-content">
+        <input type="radio" name="Photos" id="check2" checked>
+        <label for="check2" data-filter="Flower By Type">Flower By Type</label>
+
+        <input type="radio" name="Photos" id="check5">
+        <label for="check5" data-filter="Flower Vase">Flower Vase</label>
+
+        <input type="radio" name="Photos" id="check3">
+        <label for="check3" data-filter="Flower Bouquets">Flower Bouquets</label>
+
+        <input type="radio" name="Photos" id="check4">
+        <label for="check4" data-filter="Flower Baskets">Flower Baskets</label>
+    </div>
+
+    <!-- flower section -->
+
+    <section class="show-products">
+
+        <div class="box-container">
+            <div class="box" th:each="product : ${products}">
+                <div class="price" th:text="${product.productPrice}">price</div>
+                <img class="image" th:src="@{'data:image/jpeg;base64,' + ${product.productImage}}" alt="Product Image" width="100">
+                <div class="name" th:text="${product.productName}">Name</div>
+                <div class="details" th:text="${product.productDescription}">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores dolores id sint atque! Placeat magnam expedita minus iusto commodi, quibusdam velit. Eum eaque dolorum sed similique veritatis hic recusandae impedit?</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- contact section starts -->
+    <section class="contact" id="contact">
+        <h1 class="heading"> <span>Review</span> Us </h1>
+        <div class="row">
+            <form action="/submit-review" method="POST">
+                <input type="text" placeholder="name" class="box" name="name">
+                <input type="email" placeholder="email" class="box" name="email">
+                <input type="number" placeholder="number" class="box" name="number">
+                <textarea name="message" class="box" placeholder="message" id="" cols="30" rows="10"></textarea>
+                <input type="submit" value="send message" class="btn1">
+            </form>
+            <div class="image"></div>
+        </div>
+    </section>
+    <!-- contact section ends -->
+
+    <!-- footer section starts -->
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="#home">home</a>
+                <a href="#about">about</a>
+                <a href="#products">products</a>
+                <a href="/event-page">Events</a>
+                <a href="#review">review</a>
+                <a href="#contact">contact</a>
+            </div>
+
+            <div class="box">
+                <h3>extra links</h3>
+                <a href="#">my account</a>
+                <a href="#">my order</a>
+                <a href="#">my favorite</a>
+            </div>
+
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#">+94 77440033</a>
+                <a href="#">example@gmail.com</a>
+                <a href="#">Buffy Summers, 1630 Revello Drive, Sunnydale, CA 12345</a>
+                <img src="/images/payment.jpeg" alt="Payment Methods">
+            </div>
+        </div>
+
+        <div class="credit">
+            Powered by <span>B-People</span> | All rights reserved.
+            <br> © 2024 <span>Dogwood</span>
+        </div>
+    </section>
+    <!-- footer section ends -->
+
+</body>
+</html>
