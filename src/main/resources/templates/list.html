@@ -2,15 +2,273 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Order List</title>
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #ffe6f2; /* Light pink background */
-            color: #333;
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+        :root{
+            --main-color: #510646;
+            --pink: #e84393;
+            --bg: #fdd4e8;
+            --border:.1rem solid rgba(0, 0, 0, 0.3);
+            --black:#333;
+            --white:#fff;
+            --light-color:#666;
+            --light-white:#ccc;
+            --light-bg:#f5f5f5;
+            --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
         }
+
+        *{
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            text-transform: capitalize;
+            transition: .2s linear;
+        }
+
+        html{
+            font-size: 62.5%;
+            overflow-x: hidden;
+            scroll-padding-top: 9rem;
+            scroll-behavior: smooth;
+        }
+
+        html::-webkit-scrollbar{
+            width: .8rem;
+        }
+
+        html::-webkit-scrollbar-track{
+            background: transparent;
+        }
+
+        html::-webkit-scrollbar-thumb{
+            background:#fff;
+            border-radius: 5rem;
+        }
+
+        body{
+            background: var(--bg);
+        }
+
+        .btn{
+            margin-top: 1rem;
+            display: inline-block;
+            padding: .7rem 3rem;
+            font-size: 1.7rem;
+            color: #fff;
+            background: var(--main-color);
+            cursor: pointer;
+        }
+
+        .btn:hover{
+            letter-spacing: .2rem;
+        }
+
+        /*-------------Header--------------*/
+        .header {
+            background: #ffbdde;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem 7%;
+            border-bottom: var(--border);
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .logo img{
+            height: 8rem;
+            /*max-width: 100%;*/
+            display: block;
+        }
+
+        .header .navbar {
+            display: flex;
+            align-items: center;
+            gap: 1.8rem;
+        }
+
+        .header .navbar a {
+            font-size: 2rem;
+            color: #e84393;
+            padding-bottom: .5rem;
+        }
+
+        .header .navbar a:hover {
+            color: var(--main-color);
+            border-bottom: .1rem solid var(--main-color);
+            /* padding-bottom: .5rem; */
+        }
+
+        .header .icons div{
+            color: var(--pink);
+            cursor: pointer;
+            font-size: 2.5rem;
+            /*margin-left: 2rem;*/
+        }
+
+        .header .icons div:hover{
+            color: var(--main-color);
+        }
+
+        #menu-btn{
+            display: none;
+        }
+
+        .header .search-form {
+            position: absolute;
+            top: 100%;
+            right: 7%;
+            background: #fff;
+            width: 50rem;
+            height: 5rem;
+            display: flex;
+            align-items: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+            /*transform; scaleY(0);*/
+            transform-origin: top;
+        }
+
+        .header .search-form.active{
+            right: 0;
+            transform: scaleY(1);
+        }
+
+        .header .search-form input {
+            height: 100%;
+            width: 100%;
+            font-size: 1.6rem;
+            color: var(--pink);
+            padding: 1rem;
+            text-transform: none;
+        }
+
+        .search-active .search-form {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .header .search-form label{
+            cursor: pointer;
+            font-size: 2.2rem;
+            margin-right: 1.5rem;
+            color: var(--pink);
+        }
+
+        .header .search-form label:hover{
+            color: var(--main-color);
+        }
+
+        .header .account-box{
+            position: absolute;
+            top:120%; right:2rem;
+            background-color: var(--white);
+            border:var(--border);
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            padding:2rem;
+            border-radius: .5rem;
+            width: 33rem;
+            display: none;
+            animation: fadeIn .2s linear;
+        }
+
+        .header .account-box.active{
+            display: block;
+        }
+
+        .header  .account-box p{
+            padding-bottom: 1rem;
+            font-size: 2rem;
+            color:var(--light-color);
+            line-height: 1.5;
+        }
+
+        .header  .account-box p span{
+            color:var(--pink);
+        }
+
+        .header  .account-box .delete-btn{
+            margin-top: .5rem;
+        }
+
+
+        /*-----------------Footer----------------------*/
+        .footer{
+            padding: 40px 10px;
+            height: 200px;
+            padding-bottom: 2.5rem;
+            background-color:#ffbdde ;
+        }
+
+        .footer .social{
+            text-align: center;
+            padding-bottom: 25px;
+            color: var(--pink);
+        }
+
+        .footer .social a{
+            font-size: 24px;
+            color: inherit;
+            border: 1px solid var(--pink);
+            width: 40px;
+            height: 40px;
+            line-height: 38px;
+            display: inline-block;
+            text-align: center;
+            border-radius: 50%;
+            margin: 0 8px;
+            opacity: 0.75;
+        }
+
+        .footer ul{
+            margin-top: 0;
+            padding: 0;
+            list-style: none;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 0;
+            text-align: center;
+            color: #e84393;
+        }
+
+        .footer ul li a{
+            color: inherit;
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .footer ul li{
+            display: inline-block;
+            padding: 0 15px;
+        }
+
+        .footer ul li a:hover{
+            opacity: 1;
+        }
+
+        .footer .copyright{
+            margin-top: 15px;
+            text-align: center;
+            font-size: 13px;
+            color: #807f7f;
+        }
+
         h1 {
             text-align: center;
             color: #d147a3; /* Darker pink for headings */
+            padding-top: 12rem;
+            font-size: 3rem;
         }
         table {
             width: 80%;
@@ -20,6 +278,8 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding-top: 2rem;
+            padding-bottom: 20rem;
         }
         th, td {
             padding: 10px 15px;
@@ -42,6 +302,23 @@
     </style>
 </head>
 <body>
+<header class="header">
+    <a href="index.html" class="logo">
+        <img src="logo1.png" alt="">
+    </a>
+
+    <nav class="navbar">
+        <a href="/products">products</a>
+        <a href="/orders">orders</a>
+        <a href="/users">users</a>
+        <a href="/event">events</a>
+    </nav>
+
+    <div>
+        <a th:href ="@{/login}"  class="btn">Logout</a>
+    </div>
+</header>
+
 <h1>Order List</h1>
 <table>
     <thead>
@@ -66,6 +343,24 @@
     </tbody>
 </table>
 
+<section class="footer">
+    <div class="social">
+        <a href="#" class="icon"><i class="fa-brands fa-google"></i></a>
+        <a href="#" class="icon"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" class="icon"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
 
+    <ul class="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="orders.html">Orders</a></li>
+        <li><a href="users.html">Users</a></li>
+        <li><a href="event.html">Bookings</a></li>
+        <li><a href="message.html">Messages</a></li>
+    </ul>
+    <p class="copyright">© 2024 Dogwood, All rights reserved. Powered by B-People Developers</p>
+</section>
 </body>
 </html>
+
