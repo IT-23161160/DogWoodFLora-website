@@ -35,7 +35,7 @@ public class EventMapper {
         entity.setEventId(eventDTO.getEventId());
         entity.setEventName(eventDTO.getEventName());
         entity.setEventDescription(eventDTO.getEventDescription());
-        entity.setEventCategory(eventDTO.getEventcategory());
+        entity.setEventCategory(eventDTO.getEventCategory());
         return entity;
     }
 

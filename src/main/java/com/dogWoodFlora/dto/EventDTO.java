@@ -15,7 +15,7 @@ public class EventDTO {
     private String eventName;
     private String eventDescription;
     private String eventImage;
-    private String eventcategory;
+    private String eventCategory;
 
 }
 
