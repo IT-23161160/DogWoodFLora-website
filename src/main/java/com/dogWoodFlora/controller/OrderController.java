@@ -22,7 +22,7 @@ public class OrderController {
     public String viewOrders(Model model) {
         List<OrderDTO> orders = orderService.getAllOrders();
         model.addAttribute("orders", orders);
-        return "order/list";
+        return "/list";
     }
 
     @PreAuthorize("hasRole('ROLE_USER')")
@@ -30,7 +30,7 @@ public class OrderController {
     public String placeOrder(@PathVariable Long userId, Model model) {
         OrderDTO order = orderService.placeOrder(userId);
         model.addAttribute("order", order);
-        return "order/confirmation";
+        return "/confirmation";
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
@@ -38,7 +38,7 @@ public class OrderController {
     public String viewOrder(@PathVariable Long orderId, Model model) {
         OrderDTO order = orderService.getOrderById(orderId);
         model.addAttribute("order", order);
-        return "order/view";
+        return "/view";
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
@@ -46,7 +46,7 @@ public class OrderController {
     public String updateOrder(@PathVariable Long orderId, @RequestParam String status, Model model) {
         OrderDTO order = orderService.updateOrder(orderId, status);
         model.addAttribute("order", order);
-        return "order/view";
+        return "/view";
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
@@ -61,6 +61,6 @@ public class OrderController {
     public String viewUserOrders(@PathVariable Long userId, Model model) {
         List<OrderDTO> userOrders = orderService.getOrdersByUser(userId);
         model.addAttribute("orders", userOrders);
-        return "order/userOrders"; // Points to a new Thymeleaf template
+        return "/userOrders"; // Points to a new Thymeleaf template
     }
 }
