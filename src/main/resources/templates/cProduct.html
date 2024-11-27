@@ -24,27 +24,32 @@
     <input type="checkbox" name="" id="toggler">
     <label for="toggler" class="fas fa-bars"></label>
 
-    <a href="/" class="logo">
-        <img src="/images/logo1.png" width="150" height="65" alt="Logo">
+    <a href="/user" class="logo">
+        <img src="logo1.png" width="150" height="65" alt="logo">
     </a>
+
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
     </style>
 
     <nav class="navbar">
-        <a href="/users/index#home">home</a>
-        <a href="/users/index#about">about</a>
+        <a href="/user">home</a>
+        <a href="/user#about">about</a>
         <a href="/users/product">products</a>
         <a href="/users/event">Events</a>
-        <a href="/users/index#review">review</a>
-        <a href="/users/index#contact">contact</a>
+
+        <a href="/user#contact">contact</a>
     </nav>
 
     <div class="icons">
-        <a href="#" class="fas fa-heart"></a>
-        <a href="#" class="fas fa-shopping-cart"></a>
+        <!-- <a href="#" class="fas fa-heart"></a>
+         <a href="#" class="fas fa-shopping-cart"></a>-->
+
         <a href="#" class="fas fa-user"></a>
+        <a th:href="@{/login}" class="btn logout-button"   style="font-size: 15px; background-color: #E84393; color: white; padding: 7px 15px; text-decoration: none; border-radius: 9px; ">Logout</a>
+
+
     </div>
 
 </header>
@@ -128,7 +133,7 @@
                 <a href="#">+94 77440033</a>
                 <a href="#">example@gmail.com</a>
                 <a href="#">Buffy Summers, 1630 Revello Drive, Sunnydale, CA 12345</a>
-                <img src="/images/payment.jpeg" alt="Payment Methods">
+                <img src="img/img.payment.jpeg" alt="">
             </div>
         </div>
 

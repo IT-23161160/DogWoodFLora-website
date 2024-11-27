@@ -63,7 +63,7 @@ public class SecurityConfig {
 
                 // Redirect based on role
                 if (roles.contains("ROLE_ADMIN")) {
-                    response.sendRedirect("/admin"); // Redirect admin to dashboard
+                    response.sendRedirect("/products"); // Redirect admin to dashboard
                 } else {
                     response.sendRedirect("/user"); // Redirect regular user to home
                 }

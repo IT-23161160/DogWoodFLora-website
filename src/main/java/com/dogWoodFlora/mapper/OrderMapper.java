@@ -10,6 +10,7 @@ public class OrderMapper {
         dto.setOrderDate(orderEntity.getProducts().getProductId().toString());
         dto.setStatus(orderEntity.getStatus().toString());
         dto.setUserId(orderEntity.getUser().getCustomerId());
+        dto.setPaymentSlip(orderEntity.getImageDataBase64());
         return dto;
     }
 }

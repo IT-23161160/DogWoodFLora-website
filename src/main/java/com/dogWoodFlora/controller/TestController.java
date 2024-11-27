@@ -13,11 +13,6 @@ public class TestController {
 
     @GetMapping("/admin")
     public String adminPage() {
-        return "customers";
-    }
-
-    @GetMapping("/user")
-    public String userPage() {
-        return "customerIndex";
+        return "show";
     }
 }

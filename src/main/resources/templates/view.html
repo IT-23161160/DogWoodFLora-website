@@ -52,6 +52,7 @@
         <p><label>Order Date:</label> <span th:text="${order.orderDate}"></span></p>
     </div>
     <a th:href="@{/orders}">Back to Orders</a>
+    <img class="image" th:src="'data:image/jpeg;base64,' + ${order.paymentSlip}" alt="Product Image" width="100">
 </div>
 </body>
 </html>

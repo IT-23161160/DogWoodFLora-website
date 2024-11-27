@@ -22,7 +22,7 @@
   <input type="checkbox" name="" id="toggler">
   <label for="toggler" class="fas fa-bars"></label>
 
-  <a href="customerIndex.html" class="logo">
+  <a href="/user" class="logo">
     <img src="logo1.png" width="150" height="65" alt="nn">
   </a>
 
@@ -31,18 +31,22 @@
   </style>
 
   <nav class="navbar">
-    <a href="/users/index#home">home</a>
-    <a href="/users/index#about">about</a>
+    <a href="/user">home</a>
+    <a href="/user#about">about</a>
     <a href="/users/product">products</a>
     <a href="/users/event">Events</a>
-    <a href="/users/index#review">review</a>
-    <a href="/users/index#contact">contact</a>
+
+    <a href="/user#contact">contact</a>
   </nav>
 
   <div class="icons">
-    <a href="#" class="fas fa-heart"></a>
-    <a href="#" class="fas fa-shopping-cart"></a>
+    <!-- <a href="#" class="fas fa-heart"></a>
+     <a href="#" class="fas fa-shopping-cart"></a>-->
+
     <a href="#" class="fas fa-user"></a>
+    <a th:href="@{/login}" class="btn logout-button"   style="font-size: 15px; background-color: #E84393; color: white; padding: 7px 15px; text-decoration: none; border-radius: 9px; ">Logout</a>
+
+
   </div>
 
 </header>
@@ -57,26 +61,26 @@
   </section>
 
 
-    <!-- Radio buttons for categories -->
-    <div class="top-content">
-      <input type="radio" name="category" id="check1" checked th:value="'All Photos'">
-      <input type="radio" name="category" id="check2" th:value="'Weddings'">
-      <input type="radio" name="category" id="check3" th:value="'Special Events'">
-      <input type="radio" name="category" id="check4" th:value="'Parties'">
-      <input type="radio" name="category" id="check5" th:value="'Decorations'">
-      <input type="radio" name="category" id="check6" th:value="'Buddhist Occasions'">
-      <input type="radio" name="category" id="check7" th:value="'Bridal'">
-      <input type="radio" name="category" id="check8" th:value="'Funerals'">
+  <!-- Radio buttons for categories -->
+  <div class="top-content">
+    <input type="radio" name="category" id="check1" checked th:value="'All Photos'">
+    <input type="radio" name="category" id="check2" th:value="'Weddings'">
+    <input type="radio" name="category" id="check3" th:value="'Special Events'">
+    <input type="radio" name="category" id="check4" th:value="'Parties'">
+    <input type="radio" name="category" id="check5" th:value="'Decorations'">
+    <input type="radio" name="category" id="check6" th:value="'Buddhist Occasions'">
+    <input type="radio" name="category" id="check7" th:value="'Bridal'">
+    <input type="radio" name="category" id="check8" th:value="'Funerals'">
 
-      <label for="check1">All Photos</label>
-      <label for="check2">Weddings</label>
-      <label for="check3">Special Events</label>
-      <label for="check4">Parties</label>
-      <label for="check5">Decorations</label>
-      <label for="check6">Buddhist Occasions</label>
-      <label for="check7">Bridal</label>
-      <label for="check8">Funerals</label>
-    </div>
+
+    <label for="check2">Weddings</label>
+    <label for="check3">Special Events</label>
+    <label for="check4">Parties</label>
+    <label for="check5">Decorations</label>
+    <label for="check6">Buddhist Occasions</label>
+    <label for="check7">Bridal</label>
+    <label for="check8">Funerals</label>
+  </div>
 
 
   <div class="photo-gallery">
@@ -89,7 +93,7 @@
       <div class="name" th:text="${event.eventName}" style="font-size: 18px; font-weight: bold; color: #333; margin-top: 10px; text-transform: uppercase;"></div>
 
       <div class="details" th:text="${event.eventDescription}" style="font-size: 14px; color: #777; line-height: 1.5; margin-top: 5px; height: 50px; overflow: hidden; text-overflow: ellipsis;"></div>
-<br>
+      <br>
       <br>
     </div>
 

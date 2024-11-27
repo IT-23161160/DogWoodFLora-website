@@ -22,7 +22,7 @@ public class EventMapper {
 
         dto.setEventImage(eventEntity.getImageDataBase64());
 
-        dto.setEventCategory(eventEntity.getEventCategory());
+        //dto.setEventCategory(eventEntity.getEventCategory());
         return dto;
     }
 

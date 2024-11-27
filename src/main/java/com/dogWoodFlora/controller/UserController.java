@@ -86,6 +86,6 @@ public class UserController {
 
     @GetMapping("/users/product page")
     public String showCustomerProducts() {
-        return "forward:/customerProductPage.html"; // Forward to the static HTML file
+        return "cProductPage";
     }
 }

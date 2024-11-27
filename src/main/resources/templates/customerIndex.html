@@ -28,27 +28,33 @@
 
 
 
-    <a href="customerIndex.html" class="logo">
-        <img src="logo1.png" width="150" height="65" alt="nn">
+    <a th:href="@{/user}" class="logo">
+        <img th:src="@{/images/logo1.png}" width="150" height="65" alt="nn">
     </a>
+
+
 
 
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
 
     <nav class="navbar">
-        <a href="#home">home</a>
+        <a href="/user">home</a>
         <a href="#about">about</a>
         <a href="/users/product">products</a>
         <a href="/users/event">Events</a>
-        <a href="#review">review</a>
+
         <a href="#contact">contact</a>
     </nav>
 
     <div class="icons">
-        <a href="#" class="fas fa-heart"></a>
-        <a href="#" class="fas fa-shopping-cart"></a>
+        <!-- <a href="#" class="fas fa-heart"></a>
+         <a href="#" class="fas fa-shopping-cart"></a>-->
+
         <a href="#" class="fas fa-user"></a>
+        <a th:href="@{/login}" class="btn logout-button"   style="font-size: 15px; background-color: #E84393; color: white; padding: 7px 15px; text-decoration: none; border-radius: 9px; ">Logout</a>
+
+
     </div>
 
 </header>
@@ -94,7 +100,7 @@
             <h3><span>Why choose us?<span></h3>
             <p>Fresh, modern and with that special something - that's what makes our floristry special. Large bouquets, small gifts, arrangements for celebrations, companies or at home - we have something for every taste. Be inspired by our color and style corners and be advised by our competent team.</p>
             <p>Also in our range you will find a diverse selection of Bingenheim seeds in proven Demeter quality for your own vegetable and herb cultivation, because sustainability and the preservation of a healthy environment are very important to us. Therefore, whenever possible, we obtain our goods and flowers from local growers in order to reduce unnecessarily long transport routes as far as possible.</p>
-            <a href="#" class="btn1">learn more</a>
+            <a href="#products" class="btn1">learn more</a>
         </div>
 
     </div>
@@ -108,7 +114,7 @@
 <section class="icons-container">
 
     <div class="icons">
-        <img src="img/icon1.jpeg" alt="">
+        <img th:src="@{/img/icon1.jpeg}" alt="">
         <div class="info">
             <h3>Delivery Service</h3>
             <span>on all orders</span>
@@ -116,9 +122,9 @@
     </div>
 
     <div class="icons">
-        <img src="img/icon4.jpeg" alt="">
+        <img th:src="@{/img/icon4.jpeg}" alt="">
         <div class="info">
-            <h3>secure paymens</h3>
+            <h3>secure payments</h3>
             <span>protected by paypal</span>
         </div>
     </div>
@@ -149,8 +155,8 @@
         <div class="product1 product">
             <a href=""><i class="fa fa-heart-o" aria-hidden="true"></i></a>
             <div class="img-frame">
-                <a href="customerProductPage.html">
-                    <img src="~{images/T4.jpg}" alt="Assorted Colors">
+                <a href="users/product">
+                    <img src="./images/T4.jpg" alt="Assorted Colors">
                 </a>
             </div>
             <span>Flower by type</span>
@@ -163,9 +169,8 @@
         <div class="product2 product">
             <a href=""><i class="fa fa-heart-o" aria-hidden="true"></i></a>
             <div class="img-frame">
-                <a href="customerProductPage.html">
-                    <img src="~{images/T3.jpg}" alt="rose Colors">
-
+                <a href="users/product">
+                    <img src="./images/T3.jpg" alt="Assorted Colors">
                 </a>
             </div>
             <span>Flower Bouquets</span>
@@ -174,9 +179,8 @@
         <div class="product3 product">
             <a href=""><i class="fa fa-heart-o" aria-hidden="true"></i></a>
             <div class="img-frame">
-                <a href="../static/customerProduct.html">
-
-                    <img th:src="@{images/T1.jpg}" alt="Assorted Colors">
+                <a href="users/product">
+                    <img src="./images/T1.jpg" alt="Assorted Colors">
                 </a>
             </div>
             <span>Flower Backets</span>
@@ -185,7 +189,7 @@
         <div class="product3 product">
             <a href=""><i class="fa fa-heart-o" aria-hidden="true"></i></a>
             <div class="img-frame">
-                <a href="customerProductPage.html">
+                <a href="users/product">
                     <img src="./images/T2.jpg" alt="Assorted Colors">
                 </a>
             </div>
@@ -195,7 +199,7 @@
         </div>
     </div>
     </div>
-    <a href="customerProductPage.html">
+    <a href="users/product">
         <div class="btn1">Show more</div>
     </a>
 
@@ -203,145 +207,63 @@
 </section>
 <!-- products section ends -->
 <!-- products section more1 starts -->
-
-<section class="product-samples-section"id="products">
-
-    <div class="samples-box">
-        <div class="product1 product">
-            <a href=""><i class="" aria-hidden="true"></i></a>
-            <div class="img-frame">
-                <a href="../static/customerProduct.html">
-                    <img src="./images/F1.jpeg" alt="Turkish Rose">
-                </a>
-            </div>
-            <span>Turkish Rose</span>
-            <form class="quantity">
-                <input type="radio" id="q1" name="quantity1" checked><label for="q1">9 unt.</label>
-                <input type="radio" id="q2" name="quantity1"><label for="q2">15 unt.</label>
-                <input type="radio" id="q3" name="quantity1"><label for="q3">21 unt.</label>
-            </form>
-            <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
-        </div>
-        <div class="product2 product">
-            <a href=""><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-            <div class="img-frame">
-                <a href="../static/customerProduct.html">
-                    <img src="./images/F2.jpeg" alt="Rose Flower">
-                </a>
-            </div>
-            <span>Rose Flower</span>
-            <form class="quantity">
-                <input type="radio" id="q4" name="quantity2" checked><label for="q4">9 unt.</label>
-                <input type="radio" id="q5" name="quantity2"><label for="q5">15 unt.</label>
-                <input type="radio" id="q6" name="quantity2"><label for="q6">21 unt.</label>
-            </form>
-            <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
-        </div>
-        <div class="product3 product">
-            <a href=""><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-            <div class="img-frame">
-                <a href="../static/customerProduct.html">
-                    <img src="./images/F3.jpeg" alt="Assorted Colors">
-                </a>
-            </div>
-            <span>Assorted Colors</span>
-            <form class="quantity">
-                <input type="radio" id="q7" name="quantity" checked><label for="q7">9 unt.</label>
-                <input type="radio" id="q8" name="quantity"><label for="q8">15 unt.</label>
-                <input type="radio" id="q9" name="quantity"><label for="q9">21 unt.</label>
-            </form>
-            <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
-        </div>
-        <div class="product3 product">
-            <a href=""><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-            <div class="img-frame">
-                <a href="../static/customerProduct.html">
-                    <img src="./images/F4.jpeg" alt="Assorted Colors">
-                </a>
-            </div>
-            <span>Assorted Colors</span>
-            <form class="quantity">
-                <input type="radio" id="q7" name="quantity" checked><label for="q7">9 unt.</label>
-                <input type="radio" id="q8" name="quantity"><label for="q8">15 unt.</label>
-                <input type="radio" id="q9" name="quantity"><label for="q9">21 unt.</label>
-            </form>
-            <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
-        </div>
-
-    </div>
-
-
-
-    <div class="samples-box">
-        <div class="product1 product">
-            <a href=""><i class=" " aria-hidden="true"></i></a>
-            <div class="img-frame">
-                <a href="../static/customerProduct.html">
-                    <img src="./images/F1.jpeg" alt="Turkish Rose">
-                </a>
-            </div>
-            <span>Turkish Rose</span>
-            <form class="quantity">
-                <input type="radio" id="q1" name="quantity1" checked><label for="q1">9 unt.</label>
-                <input type="radio" id="q2" name="quantity1"><label for="q2">15 unt.</label>
-                <input type="radio" id="q3" name="quantity1"><label for="q3">21 unt.</label>
-            </form>
-            <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
-        </div>
-        <div class="product2 product">
-            <a href=""><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-            <div class="img-frame">
-                <a href="../static/customerProduct.html">
-                    <img src="./images/F2.jpeg" alt="Rose Flower">
-                </a>
-            </div>
-            <span>Rose Flower</span>
-            <form class="quantity">
-                <input type="radio" id="q4" name="quantity2" checked><label for="q4">9 unt.</label>
-                <input type="radio" id="q5" name="quantity2"><label for="q5">15 unt.</label>
-                <input type="radio" id="q6" name="quantity2"><label for="q6">21 unt.</label>
-            </form>
-            <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
-        </div>
-        <div class="product3 product">
-            <a href=""><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-            <div class="img-frame">
-                <a href="../static/customerProduct.html">
-                    <img src="./images/F3.jpeg" alt="Assorted Colors">
-                </a>
-            </div>
-            <span>Assorted Colors</span>
-            <form class="quantity">
-                <input type="radio" id="q7" name="quantity" checked><label for="q7">9 unt.</label>
-                <input type="radio" id="q8" name="quantity"><label for="q8">15 unt.</label>
-                <input type="radio" id="q9" name="quantity"><label for="q9">21 unt.</label>
-            </form>
-            <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
-        </div>
-        <div class="product3 product">
-            <a href=""><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-            <div class="img-frame">
-                <a href="../static/customerProduct.html">
-                    <img src="./images/F4.jpeg" alt="Assorted Colors">
-                </a>
-            </div>
-            <span>Assorted Colors</span>
-            <form class="quantity">
-                <input type="radio" id="q7" name="quantity" checked><label for="q7">9 unt.</label>
-                <input type="radio" id="q8" name="quantity"><label for="q8">15 unt.</label>
-                <input type="radio" id="q9" name="quantity"><label for="q9">21 unt.</label>
-            </form>
-            <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
-        </div>
-
-    </div>
-
+<!--..........
+<section class="show-products">
+    <div class="box-container">
+        <div class="box" th:each="product, iterStat : ${products}"> -->
+<!-- Check if the loop index is less than 8 to display only 8 products -->
+<!--<div th:if="${iterStat.index < 8}">
+    <div class="price" th:text="${product.productPrice}">price</div>
+    <img class="image" th:src="@{'data:image/jpeg;base64,' + ${product.productImage}}" alt="Product Image" width="100">
+    <div class="name" th:text="${product.productName}">Name</div>
+    <div class="details" th:text="${product.productDescription}">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores dolores id sint atque! Placeat magnam expedita minus iusto commodi, quibusdam velit. Eum eaque dolorum sed similique veritatis hic recusandae impedit?</div>
+</div>
+</div>
+</div>
 </section>
-<!-- products section more2 ends -->
+
+............./-->
+<section class="product-samples-section" id="products"
+         style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 20px;">
+    <div class="samples-box" th:each="product, iterStat : ${products}">
+        <div class="product1 product" th:if="${iterStat.index < 8}"
+             style="border: 1px solid #ddd; padding: 15px; background: #f9f9f9; text-align: center;
+                   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); width: 100%; margin: 10px auto; box-sizing: border-box;">
+            <a href=""><i class="" aria-hidden="true"></i></a>
+            <div class="img-frame"
+                 style="overflow: hidden; width: 100%; height: 250px; display: flex; justify-content: center; align-items: center;">
+                <a href="users/product">
+                    <img th:src="@{'data:image/jpeg;base64,' + ${product.productImage}}" alt="Turkish Rose"
+                         style="width: 100%; height: 100%; object-fit: cover;">
+                </a>
+            </div>
+            <span>
+                <div th:text="${product.productName}"
+                     style="font-size: 3 rem; font-weight: bold; margin-top: 10px;">Turkish Rose</div>
+            </span>
+            <form class="quantity" style="margin-top: 10px;">
+                <input type="radio" id="q1" name="quantity1" >
+                <label for="q1" style="font-size: 0.9rem;">9 unt.</label>
+                <input type="radio" id="q2" name="quantity1">
+                <label for="q2" style="font-size: 0.9rem;">15 unt.</label>
+                <input type="radio" id="q3" name="quantity1">
+                <label for="q3" style="font-size: 0.9rem;">21 unt.</label>
+            </form>
+
+            <span class="price-span" th:text="${product.productPrice}"
+                  style="display: block; margin-top: 15px; font-size: 1.5rem; color: #333;">
+                Price: LKR 1,500
+                <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+            </span>
+        </div>
+    </div>
+</section>
 
 
 
 
+
+/...........
 
 <!-- events section starts -->
 
@@ -357,7 +279,7 @@
         <div class="product1 product">
             <a href=""><i class="" aria-hidden="true"></i></a>
             <div class="img-frame">
-                <a href="event page.html#SE">
+                <a href="users/Event">
                     <img src="./images/E1.jpg" alt="Turkish Rose">
                 </a>
             </div>
@@ -368,7 +290,7 @@
         <div class="product2 product">
             <a href=""><i class="fa fa-heart-o" aria-hidden="true"></i></a>
             <div class="img-frame">
-                <a href="event page.html">
+                <a href="users/event">
                     <img src="./images/E2.jpg" alt="Rose Flower">
                 </a>
             </div>
@@ -378,7 +300,7 @@
         <div class="product3 product">
             <a href=""><i class="fa fa-heart-o" aria-hidden="true"></i></a>
             <div class="img-frame">
-                <a href="event page.html">
+                <a href="users/event">
                     <img src="./images/E3.jpg" alt="Assorted Colors">
                 </a>
             </div>
@@ -388,7 +310,7 @@
         <div class="product3 product">
             <a href=""><i class="fa fa-heart-o" aria-hidden="true"></i></a>
             <div class="img-frame">
-                <a href="event page.html">
+                <a href="users/event">
                     <img src="./images/E4.jpg" alt="Assorted Colors">
                 </a>
             </div>
@@ -397,7 +319,7 @@
         </div>
 
     </div>
-    <a href="event page.html">
+    <a href="users/event">
         <div class="btn1">Show more</div>
     </a>
 

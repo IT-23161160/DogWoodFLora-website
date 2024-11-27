@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Base64;
 import java.util.List;
 
 @Entity
@@ -49,5 +50,17 @@ public class OrderEntity {
 
     public enum OrderStatus {
         SUCCEEDED, FAILED, CANCELLED, PENDING
+    }
+
+    public String getImageDataBase64() {
+        return Base64.getEncoder().encodeToString(this.paymentSlip);
+    }
+
+    public void setImageDataFromBase64(String base64Image) {
+        if (base64Image != null && !base64Image.isEmpty()) {
+            this.paymentSlip = Base64.getDecoder().decode(base64Image);
+        } else {
+            this.paymentSlip = null; // Set to null if the input string is empty or null
+        }
     }
 }

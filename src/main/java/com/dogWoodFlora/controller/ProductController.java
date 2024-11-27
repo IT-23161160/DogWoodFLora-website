@@ -118,4 +118,12 @@ public class ProductController {
         model.addAttribute("reviews", reviews);
         return "products/reviews";
     }
+
+    @GetMapping("/user")
+    public String userPage(Model model) {
+        // Fetch only 8 products for the user page
+        List<ProductDTO> products = productService.getLimitedProducts(8);
+        model.addAttribute("products", products);
+        return "customerIndex";  // Customer index page (customerIndex.html)
+    }
 }

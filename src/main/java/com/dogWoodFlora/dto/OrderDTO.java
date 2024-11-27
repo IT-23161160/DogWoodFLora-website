@@ -12,6 +12,7 @@ public class OrderDTO {
     private String orderDate;
     private String status;
     private Long userId;
+    private String paymentSlip;
 
     // getters and setters
 }
