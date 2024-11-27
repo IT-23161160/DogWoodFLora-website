@@ -18,6 +18,6 @@ public class TestController {
 
     @GetMapping("/user")
     public String userPage() {
-        return "user";
+        return "customerIndex";
     }
 }
