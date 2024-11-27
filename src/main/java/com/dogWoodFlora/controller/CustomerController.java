@@ -30,7 +30,7 @@ public class CustomerController {
     public String getCustomerById(@PathVariable Long id, Model model) {
         UserEntity customer = userService.getCustomerById(id);
         model.addAttribute("customer", customer);
-        return "users/customer-details";
+        return "customer-details";
     }
 
     @PreAuthorize("hasRole('ADMIN')")
@@ -59,7 +59,7 @@ public class CustomerController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("/{id}")
+    @PostMapping("/users/{id}/delete")
     public String deleteCustomer(@PathVariable Long id) {
         userService.deleteCustomer(id);
         return "redirect:/users";

@@ -910,14 +910,18 @@
 
     <h1 class="title">users account</h1>
 
-    <div class="box-container">
-        <div class="box" th:each="customer : ${customers}">
-            <p>user id : <span th:text="${customer.customerId}">002</span></p>
-            <p>Name : <span th:text="${customer.firstName+' '+customer.lastName}">Kaveen Sashintha</span></p>
-            <p>email : <span th:text="${customer.email}">kaveen123@gmail.com</span></p>
-            <a href="" onclick="return confirm('delete this user?');" class="delete-btn">delete</a>
-        </div>
+    <<div class="box-container">
+    <div class="box" th:each="customer : ${customers}">
+        <p>user id : <span th:text="${customer.customerId}">002</span></p>
+        <p>Name : <span th:text="${customer.firstName+' '+customer.lastName}">Kaveen Sashintha</span></p>
+        <p>email : <span th:text="${customer.email}">kaveen123@gmail.com</span></p>
+
+        <form th:action="@{/users/{id}/delete(id=${customer.customerId})}" method="post" style="display:inline;">
+            <input type="submit" value="Delete" class="delete-btn" onclick="return confirm('Delete this user?');" />
+        </form>
     </div>
+</div>
+
 
 </section>
 
