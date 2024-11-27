@@ -20,23 +20,7 @@
         <a href="/event">events</a>
     </nav>
 
-    <div class="icons">
-        <div class="fas fa-search" id="search-btn"></div>
-        <div class="fas fa-bars" id="menu-btn"></div>
-        <div id="user-btn" class="fas fa-user"></div>
-    </div>
-
-    <div class="search-form">
-        <input type="search" id="search-box" placeholder="search here...">
-        <label for="search-box" class="fas fa-search"></label>
-    </div>
-
-    <div class="account-box">
-        <p>username : <span>admin name</span></p>
-        <p>email : <span>admin email</span></p>
-        <a href="logout.html" class="delete-btn">logout</a>
-        <div>new <a href="login.html" class="btn">login</a> | <a href="register.html" class="btn">register</a> </div>
-    </div>
+    <button type="submit" class="btn">Logout</button>
 </header>
 
 <section class="add-events">
@@ -48,9 +32,9 @@
         <textarea id="eventDescription" th:field="*{event.eventDescription}" placeholder="Enter event details" class="box" cols="30" rows="10" required></textarea><br/>
         <input type="file" id="eventImageFile" name="eventImageFile" accept="image/jpg, image/jpeg, image/png" class="box" required /><br/>
 
-
-
-        <button type="submit" class="btn">Update Event</button>
+        <div>
+            <a th:href ="@{/login}"  class="btn">Logout</a>
+        </div>
     </form>
 </section>
 
