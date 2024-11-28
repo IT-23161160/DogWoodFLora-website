@@ -25,12 +25,12 @@
 
             </div>
             <div class="main-img-frame">
-                <img src="./images/ts2.jpg" alt="Red Roses">
+                <img th:src="'data:image/jpeg;base64,' + ${product.productImage}" alt="Red Roses">
             </div>
         </div>
-        <div class="product-info">
+        <div class="product-info" >
             <div class="product-title line">
-                <h1>Red Roses</h1>
+                <h1 th:text="${product.productName}">Red Roses</h1>
 
                 <a href="#" class="heart-icon">
                     <i class="fa fa-heart-o" aria-hidden="true"></i> <!-- Default unfilled heart -->
@@ -41,28 +41,16 @@
 
             <div class="other-options line">
                 <div class="delivery">
-                    <span>Delivery:</span>
                     <div class="delivery-options">
                         <div class="options-line">
-                            <label>
-                                <input type="radio" class="delivery-radio" name="delivery" id="courier" />
-                                In Stock
-                            </label>
-                            <label>
-                                <input type="radio" class="delivery-radio" name="delivery" id="pickup" />
-                                Out Of Stock
-                            </label>
-                            <label>
-                                <input type="radio" class="delivery-radio" name="delivery" id="cp" />
-                                Coming Soon
-                            </label>
+                            <p><label>Availability:</label> <span th:text="${product.productStatus}"></span></p>
                         </div>
                     </div>
                 </div>
 
             </div>
             <div class="total line">
-                <span class="new-price">49</span>
+                <span class="new-price" th:text="${product.productPrice}">49</span>
                 <div class="buy-btn">Buy</div>
             </div>
         </div>
@@ -72,7 +60,7 @@
     <div class="related-products">
         <nav class="related-products-bar">
             <h2 class="title">Related products</h2>
-
+`
         </nav>
         <div class="related-box">
             <div class="related1 related">

@@ -1,8 +1,16 @@
 package com.dogWoodFlora.controller;
 
 import com.dogWoodFlora.dto.OrderDTO;
+import com.dogWoodFlora.entity.AddressEntity;
+import com.dogWoodFlora.entity.OrderEntity;
+import com.dogWoodFlora.entity.ProductEntity;
+import com.dogWoodFlora.entity.UserEntity;
+import com.dogWoodFlora.mapper.OrderMapper;
 import com.dogWoodFlora.security.CustomUserDetails;
+import com.dogWoodFlora.service.AddressService;
 import com.dogWoodFlora.service.OrderService;
+import com.dogWoodFlora.service.ProductService;
+import com.dogWoodFlora.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -19,6 +27,18 @@ public class OrderController {
 
     @Autowired
     private OrderService orderService;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private AddressService addressService;
+
+    @Autowired
+    private ProductService productService;
+
+    @Autowired
+    private OrderMapper orderMapper;
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping
@@ -46,8 +66,14 @@ public class OrderController {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/{orderId}")
     public String viewOrder(@PathVariable Long orderId, Model model) {
-        OrderDTO order = orderService.getOrderById(orderId);
+        OrderEntity order = orderService.getOrderById(orderId);
+        UserEntity user = order.getUser();
+        AddressEntity address = user.getAddress();
+        ProductEntity product = order.getProducts();
         model.addAttribute("order", order);
+        model.addAttribute("user", user);
+        model.addAttribute("address", address);
+        model.addAttribute("product", product);
         return "view";
     }
 

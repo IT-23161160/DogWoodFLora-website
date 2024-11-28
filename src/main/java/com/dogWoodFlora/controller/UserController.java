@@ -1,7 +1,9 @@
 package com.dogWoodFlora.controller;
 
+import com.dogWoodFlora.dto.ProductDTO;
 import com.dogWoodFlora.entity.UserEntity;
 import com.dogWoodFlora.repository.UserRepository;
+import com.dogWoodFlora.service.ProductService;
 import com.dogWoodFlora.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,6 +18,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class UserController {
+
+    @Autowired
+    private ProductService productService;
 
     // Inject the special key from application.properties
     @Value("${admin.special.key}")
@@ -84,8 +89,18 @@ public class UserController {
         return "forward:/customerEvent.html"; // Forward to the static HTML file
     }
 
-    @GetMapping("/users/product page")
-    public String showCustomerProducts() {
-        return "cProductPage";
+    @GetMapping("/users/buy")
+    public String showCustomerProduct(@RequestParam("productId") Long productId, Model model) {
+        // Fetch the product by its ID
+        ProductDTO product = productService.getProductById(productId);
+
+        // Add the product to the model to display on the page
+        model.addAttribute("product", product);
+
+        // Return the view name
+        return "cProductPage"; // This is your product details page
     }
+
+
+
 }

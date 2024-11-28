@@ -60,12 +60,9 @@ public class OrderService {
         return orders.stream().map(OrderMapper::toDTO).collect(Collectors.toList());
     }
 
-    public OrderDTO getOrderById(Long orderId) {
+    public OrderEntity getOrderById(Long orderId) {
         Optional<OrderEntity> order = orderRepository.findById(orderId);
-        if (order.isPresent()) {
-            return OrderMapper.toDTO(order.get());
-        }
-        throw new RuntimeException("Order not found");
+        return order.orElse(null);
     }
 
     public OrderDTO updateOrder(Long orderId, String newStatus) {

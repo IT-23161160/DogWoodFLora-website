@@ -2,7 +2,9 @@ package com.dogWoodFlora.mapper;
 
 import com.dogWoodFlora.dto.OrderDTO;
 import com.dogWoodFlora.entity.OrderEntity;
+import org.springframework.stereotype.Component;
 
+@Component
 public class OrderMapper {
     public static OrderDTO toDTO(OrderEntity orderEntity) {
         OrderDTO dto = new OrderDTO();

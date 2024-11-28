@@ -24,7 +24,7 @@ public class OrderEntity {
     private LocalDateTime date;
 
     @Enumerated(EnumType.STRING)
-    private PaymentStatus paymentStatus;
+    private PaymentStatus payment;
 
     @Enumerated(EnumType.STRING)
     private OrderStatus status;

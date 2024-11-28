@@ -1,3 +1,35 @@
+function placeOrder(button) {
+    // Get the product ID from the button's data attribute
+    const productId = button.getAttribute('data-product-id');
+
+    // Get CSRF token if enabled (update this if you have CSRF enabled)
+    const csrfToken = document.querySelector('meta[name="_csrf"]')?.getAttribute('content');
+    const csrfHeader = document.querySelector('meta[name="_csrf_header"]')?.getAttribute('content');
+
+    // Send the POST request to the backend
+    fetch('/placeOrder', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            ...(csrfToken && { [csrfHeader]: csrfToken }) // Include CSRF token if available
+        },
+        body: JSON.stringify({ productId: productId })
+    })
+        .then(response => {
+            if (response.ok) {
+                // Redirect to confirmation page or show a success message
+                window.location.href = '/confirmation';
+            } else {
+                // Handle errors
+                console.error('Failed to place order');
+                alert('Failed to place order. Please try again.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An unexpected error occurred.');
+        });
+}
 
 document.addEventListener("DOMContentLoaded", function () {
     const radioButtons = document.querySelectorAll('input[name="Photos"]');

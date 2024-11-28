@@ -85,7 +85,9 @@
         <div class="box-container">
             <div class="box" th:each="product : ${products}">
                 <div class="price" th:text="${product.productPrice}">price</div>
-                <img class="image" th:src="@{'data:image/jpeg;base64,' + ${product.productImage}}" alt="Product Image" width="100">
+                <a th:href="@{/users/buy(productId=${product.productId})}">
+                    <img class="image" th:src="@{'data:image/jpeg;base64,' + ${product.productImage}}" alt="Product Image" width="100">
+                </a>
                 <div class="name" th:text="${product.productName}">Name</div>
                 <div class="details" th:text="${product.productDescription}">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores dolores id sint atque! Placeat magnam expedita minus iusto commodi, quibusdam velit. Eum eaque dolorum sed similique veritatis hic recusandae impedit?</div>
             </div>

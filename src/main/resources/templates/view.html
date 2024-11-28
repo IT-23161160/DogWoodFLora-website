@@ -40,6 +40,10 @@
         a:hover {
             background-color: #bf3a8c;
         }
+        .image {
+            margin-top: 20px;
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -47,12 +51,14 @@
     <h1>Order Details</h1>
     <div class="details">
         <p><label>Order ID:</label> <span th:text="${order.orderId}"></span></p>
-        <p><label>User ID:</label> <span th:text="${order.userId}"></span></p>
+        <p><label>User Name:</label> <span th:text="${user.firstName} + ' ' + ${user.lastName}"></span></p>
+        <p><label>User Email:</label> <span th:text="${user.email}"></span></p>
+        <p><label>Product Name:</label> <span th:text="${product.productName}"></span></p>
         <p><label>Status:</label> <span th:text="${order.status}"></span></p>
-        <p><label>Order Date:</label> <span th:text="${order.orderDate}"></span></p>
     </div>
     <a th:href="@{/orders}">Back to Orders</a>
-    <img class="image" th:src="'data:image/jpeg;base64,' + ${order.paymentSlip}" alt="Product Image" width="100">
+    <img class="image" th:src="'data:image/jpeg;base64,' + ${order.paymentSlip}" alt="Payment Slip" width="100">
+
 </div>
 </body>
 </html>
